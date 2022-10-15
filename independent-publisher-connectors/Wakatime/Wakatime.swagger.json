@@ -1,0 +1,744 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Wakatime",
+    "description": "Receives data from Wakatime",
+    "version": "1.0"
+  },
+  "host": "wakatime.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/api/v1/editors": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "description": "date",
+              "title": "date",
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "summary": "Get Editors",
+        "description": "List of WakaTime IDE plugins, latest plugin versions, and their color used on WakaTime charts.",
+        "operationId": "GetEditors",
+        "parameters": []
+      }
+    },
+    "/api/v1/users/:user/all_time_since_today": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "title": "",
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "description": "The total time logged since account created, available even for Free accounts.",
+        "summary": "All time today",
+        "operationId": "GetAllTimeToday",
+        "parameters": []
+      }
+    },
+    "/api/v1/users/:user/goals/:goal": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {},
+                  "description": "data"
+                },
+                "total": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total"
+                },
+                "total_pages": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total_pages"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "GetGoal",
+        "description": "Get Goal",
+        "summary": "Get Goal",
+        "parameters": []
+      }
+    },
+    "/api/v1/leaders": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "country_code": {
+                  "type": "string",
+                  "description": "country_code"
+                },
+                "current_user": {
+                  "type": "object",
+                  "properties": {
+                    "page": {
+                      "type": "string",
+                      "description": "page"
+                    },
+                    "rank": {
+                      "type": "string",
+                      "description": "rank"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "city": {
+                          "type": "object",
+                          "properties": {
+                            "ascii_name": {
+                              "type": "string",
+                              "description": "ascii_name"
+                            },
+                            "ascii_state": {
+                              "type": "string",
+                              "description": "ascii_state"
+                            },
+                            "country": {
+                              "type": "string",
+                              "description": "country"
+                            },
+                            "country_code": {
+                              "type": "string",
+                              "description": "country_code"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "id"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "name"
+                            },
+                            "population": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "population"
+                            },
+                            "state": {
+                              "type": "string",
+                              "description": "state"
+                            },
+                            "timezone": {
+                              "type": "string",
+                              "description": "timezone"
+                            },
+                            "title": {
+                              "type": "string",
+                              "description": "title"
+                            }
+                          },
+                          "description": "city"
+                        },
+                        "display_name": {
+                          "type": "string",
+                          "description": "display_name"
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "email"
+                        },
+                        "full_name": {
+                          "type": "string",
+                          "description": "full_name"
+                        },
+                        "human_readable_website": {
+                          "type": "string",
+                          "description": "human_readable_website"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "is_email_public": {
+                          "type": "boolean",
+                          "description": "is_email_public"
+                        },
+                        "is_hireable": {
+                          "type": "boolean",
+                          "description": "is_hireable"
+                        },
+                        "photo": {
+                          "type": "string",
+                          "description": "photo"
+                        },
+                        "photo_public": {
+                          "type": "boolean",
+                          "description": "photo_public"
+                        },
+                        "username": {
+                          "type": "string",
+                          "description": "username"
+                        },
+                        "website": {
+                          "type": "string",
+                          "description": "website"
+                        }
+                      },
+                      "description": "user"
+                    }
+                  },
+                  "description": "current_user"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rank": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "rank"
+                      },
+                      "running_total": {
+                        "type": "object",
+                        "properties": {
+                          "daily_average": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "daily_average"
+                          },
+                          "human_readable_daily_average": {
+                            "type": "string",
+                            "description": "human_readable_daily_average"
+                          },
+                          "human_readable_total": {
+                            "type": "string",
+                            "description": "human_readable_total"
+                          },
+                          "languages": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "name"
+                                },
+                                "total_seconds": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "total_seconds"
+                                }
+                              }
+                            },
+                            "description": "languages"
+                          },
+                          "languages_html": {
+                            "type": "string",
+                            "description": "languages_html"
+                          },
+                          "total_seconds": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "total_seconds"
+                          }
+                        },
+                        "description": "running_total"
+                      },
+                      "user": {
+                        "type": "object",
+                        "properties": {
+                          "city": {
+                            "type": "string",
+                            "description": "city"
+                          },
+                          "display_name": {
+                            "type": "string",
+                            "description": "display_name"
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "email"
+                          },
+                          "full_name": {
+                            "type": "string",
+                            "description": "full_name"
+                          },
+                          "human_readable_website": {
+                            "type": "string",
+                            "description": "human_readable_website"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "id"
+                          },
+                          "is_email_public": {
+                            "type": "boolean",
+                            "description": "is_email_public"
+                          },
+                          "is_hireable": {
+                            "type": "boolean",
+                            "description": "is_hireable"
+                          },
+                          "location": {
+                            "type": "string",
+                            "description": "location"
+                          },
+                          "photo": {
+                            "type": "string",
+                            "description": "photo"
+                          },
+                          "photo_public": {
+                            "type": "boolean",
+                            "description": "photo_public"
+                          },
+                          "username": {
+                            "type": "string",
+                            "description": "username"
+                          },
+                          "website": {
+                            "type": "string",
+                            "description": "website"
+                          }
+                        },
+                        "description": "user"
+                      }
+                    }
+                  },
+                  "description": "data"
+                },
+                "is_hireable": {
+                  "type": "boolean",
+                  "description": "is_hireable"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "language"
+                },
+                "modified_at": {
+                  "type": "string",
+                  "description": "modified_at"
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "page"
+                },
+                "range": {
+                  "type": "object",
+                  "properties": {
+                    "end_date": {
+                      "type": "string",
+                      "description": "end_date"
+                    },
+                    "end_text": {
+                      "type": "string",
+                      "description": "end_text"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "start_date": {
+                      "type": "string",
+                      "description": "start_date"
+                    },
+                    "start_text": {
+                      "type": "string",
+                      "description": "start_text"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "text"
+                    }
+                  },
+                  "description": "range"
+                },
+                "timeout": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "timeout"
+                },
+                "total_pages": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total_pages"
+                },
+                "writes_only": {
+                  "type": "boolean",
+                  "description": "writes_only"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Leaders",
+        "description": "Leaders",
+        "operationId": "GetLeaders",
+        "parameters": []
+      }
+    },
+    "/api/v1/users/:user/insights/:insight_type/:range": {},
+    "/api/v1/users/:user/external_durations": {},
+    "/api/v1/users/current/external_durations": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            },
+            "headers": {
+              "{": {
+                "description": "{",
+                "type": "string"
+              },
+              "\"data\"": {
+                "description": "\"data\"",
+                "type": "string"
+              },
+              "\"id\"": {
+                "description": "\"id\"",
+                "type": "string"
+              },
+              "\"external_id\"": {
+                "description": "\"external_id\"",
+                "type": "string"
+              },
+              "\"entity\"": {
+                "description": "\"entity\"",
+                "type": "string"
+              },
+              "\"type\"": {
+                "description": "\"type\"",
+                "type": "string"
+              },
+              "\"provider\"": {
+                "description": "\"provider\"",
+                "type": "string"
+              },
+              "\"category\"": {
+                "description": "\"category\"",
+                "type": "string"
+              },
+              "\"start_time\"": {
+                "description": "\"start_time\"",
+                "type": "string"
+              },
+              "\"end_time\"": {
+                "description": "\"end_time\"",
+                "type": "string"
+              },
+              "\"project\"": {
+                "description": "\"project\"",
+                "type": "string"
+              },
+              "\"branch\"": {
+                "description": "\"branch\"",
+                "type": "string"
+              },
+              "\"language\"": {
+                "description": "\"language\"",
+                "type": "string"
+              },
+              "\"meta\"": {
+                "description": "\"meta\"",
+                "type": "string"
+              },
+              "},": {
+                "description": "},",
+                "type": "string"
+              },
+              "],": {
+                "description": "],",
+                "type": "string"
+              },
+              "\"start\"": {
+                "description": "\"start\"",
+                "type": "string"
+              },
+              "\"end\"": {
+                "description": "\"end\"",
+                "type": "string"
+              },
+              "\"timezone\"": {
+                "description": "\"timezone\"",
+                "type": "string"
+              },
+              "}": {
+                "description": "}",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "External Duration",
+        "description": "A user's external durations for the given day",
+        "operationId": "ExternalDuration",
+        "parameters": [
+          {
+            "name": "application/json",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/api/v1/users/current/insights/:insight_type/:range": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "end": {
+                      "type": "string",
+                      "description": "end"
+                    },
+                    "human_readable_range": {
+                      "type": "string",
+                      "description": "human_readable_range"
+                    },
+                    "is_already_updating": {
+                      "type": "boolean",
+                      "description": "is_already_updating"
+                    },
+                    "is_including_today": {
+                      "type": "boolean",
+                      "description": "is_including_today"
+                    },
+                    "is_stuck": {
+                      "type": "boolean",
+                      "description": "is_stuck"
+                    },
+                    "is_up_to_date": {
+                      "type": "boolean",
+                      "description": "is_up_to_date"
+                    },
+                    "is_up_to_date_pending_future": {
+                      "type": "boolean",
+                      "description": "is_up_to_date_pending_future"
+                    },
+                    "modified_at": {
+                      "type": "string",
+                      "description": "modified_at"
+                    },
+                    "percent_calculated": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "percent_calculated"
+                    },
+                    "range": {
+                      "type": "string",
+                      "description": "range"
+                    },
+                    "start": {
+                      "type": "string",
+                      "description": "start"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "timeout": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "timeout"
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "timezone"
+                    },
+                    "user_id": {
+                      "type": "string",
+                      "description": "user_id"
+                    },
+                    "weekdays": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "average": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "average"
+                          },
+                          "categories": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "average": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "average"
+                                },
+                                "human_readable_average": {
+                                  "type": "string",
+                                  "description": "human_readable_average"
+                                },
+                                "human_readable_total": {
+                                  "type": "string",
+                                  "description": "human_readable_total"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "name"
+                                },
+                                "total": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "total"
+                                }
+                              }
+                            },
+                            "description": "categories"
+                          },
+                          "count": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "count"
+                          },
+                          "human_readable_average": {
+                            "type": "string",
+                            "description": "human_readable_average"
+                          },
+                          "human_readable_total": {
+                            "type": "string",
+                            "description": "human_readable_total"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          },
+                          "total": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "total"
+                          }
+                        }
+                      },
+                      "description": "weekdays"
+                    },
+                    "writes_only": {
+                      "type": "boolean",
+                      "description": "writes_only"
+                    }
+                  },
+                  "description": "data"
+                }
+              }
+            }
+          }
+        },
+        "description": "An insight about the user’s coding activity for the given time range",
+        "summary": "Insight",
+        "operationId": "GetInsights",
+        "parameters": []
+      }
+    },
+    "/api/v1/users/current/durations": {},
+    "/api/v1/users/:user/durations": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "branches": {
+                  "type": "array",
+                  "items": {},
+                  "description": "branches"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {},
+                  "description": "data"
+                },
+                "end": {
+                  "type": "string",
+                  "description": "end"
+                },
+                "start": {
+                  "type": "string",
+                  "description": "start"
+                },
+                "timezone": {
+                  "type": "string",
+                  "description": "timezone"
+                }
+              }
+            }
+          }
+        },
+        "summary": "duration",
+        "description": "A user's coding activity for the given day as an array of durations.",
+        "operationId": "Duration",
+        "parameters": []
+      }
+    },
+    "/api/v1/users/:user/projects/:project/commits": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Commits Made",
+        "description": "",
+        "operationId": "GetCommits",
+        "parameters": []
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://wakatime.com/oauth/authorize",
+      "tokenUrl": "https://wakatime.com/oauth/token",
+      "scopes": {
+        "read_logged_time": "read_logged_time"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": [
+        "read_logged_time"
+      ]
+    }
+  ],
+  "tags": []
+}
